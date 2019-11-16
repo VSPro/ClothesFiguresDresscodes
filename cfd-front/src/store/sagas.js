@@ -1,15 +1,9 @@
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 
-function* test() {
-    yield put({ type: "TEST", payload: 123 });
-}
-
-function* actionWatcher() {
-    yield takeLatest('GET_NEWS', test)
-}
+import testWatcher from '../containers/TestContainer/sagas'
 
 export default function* rootSaga() {
     yield all([
-        actionWatcher(),
+        testWatcher(),
     ]);
  }

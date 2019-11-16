@@ -1,12 +1,6 @@
-const initialState = {
-    testItem: null
-}
+import { combineReducers } from 'redux'
+import testReducer from '../containers/TestContainer/reducer'
 
-export default function rootReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'TEST':
-            return {...state, testItem: action.payload}
-        default:
-            return state
-    }
-}
+export default combineReducers({
+    test: testReducer
+})
