@@ -7,7 +7,7 @@ function TestContainer( props ) {
     const dispatch = useDispatch()
     const testData = useSelector( store => store.test.testItem )
 
-    console.log('I\'m called from TestContainer component', props)
+    // console.log('I\'m called from TestContainer component', props)
 
     return <>
         <button
