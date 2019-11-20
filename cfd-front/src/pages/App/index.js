@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 // import logo from './logo.svg';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import './App.css';
 
 // import TestContainer from '../TestContainer/'
@@ -35,16 +37,46 @@ function App( props ) {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <span>Обхват груди</span>
-        <input type='number' value={ inputs.first } onChange={ inputValidationFunc('first') } />
-        <span>Обхват талии</span>
-        <input type='number' value={ inputs.second } onChange={ inputValidationFunc('second') } />
-        <span>Обхват бёдер</span>
-        <input type='number' value={ inputs.third } onChange={ inputValidationFunc('third') } />
-        <span>Рост</span>
-        <input type='number' value={ inputs.fourth } onChange={ inputValidationFunc('fourth') } />
-        <button
+        <TextField
+          id="chest-girth"
+          label="Обхват груди"
+          variant="outlined"
+          // fullWidth
+          margin="normal"
+          type='number'
+          value={ inputs.first }
+          onChange={ inputValidationFunc('first') }
+        />
+        <TextField
+          id="waist-circumference"
+          label="Обхват талии"
+          variant="outlined"
+          margin="normal"
+          type='number'
+          value={ inputs.second }
+          onChange={ inputValidationFunc('second') }
+        />
+        <TextField
+          id="hip-girth"
+          label="Обхват бёдер"
+          variant="outlined"
+          margin="normal"
+          type='number'
+          value={ inputs.third }
+          onChange={ inputValidationFunc('third') }
+        />
+        <TextField
+          id="height"
+          label="Рост"
+          variant="outlined"
+          margin="normal"
+          type='number'
+          value={ inputs.fourth }
+          onChange={ inputValidationFunc('fourth') }
+        />
+        <Button
+          variant="contained"
+          color="secondary"
           disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth) } 
           onClick={ () => { 
             dispatch(
@@ -61,7 +93,7 @@ function App( props ) {
           }}
         >
           Определить тип фигуры  
-        </button>
+        </Button>
 
         <div>
           <div>Ваш тип фигуры:</div>
