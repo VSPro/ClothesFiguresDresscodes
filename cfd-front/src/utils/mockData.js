@@ -4,15 +4,14 @@
  * файл можно рассматривать, как основу для разработки бэкенда: это и API и примеры обработки данных
  */
 
+import shapeTypeDetermination from './shapeTypeEstimating'
+
 const mockFetch = {}
+
 mockFetch.get = (path, params) => {
-    // console.log('called from mockData.js  /  Params for request:', params)
     switch (path) {
         case '/find-type-of-shape':
-            // Здесь надо написать код обработки пришедших данных
-        
-            // Типы фигур будут обозначатся заглавными буквами ланитского алфавита
-            return 'A'
+        return shapeTypeDetermination(params.payload)
     }
 }
 

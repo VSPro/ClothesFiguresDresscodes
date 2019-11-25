@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 // import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import './App.css';
 
 // import TestContainer from '../TestContainer/'
@@ -14,21 +16,27 @@ function App( props ) {
     first: '',
     second: '',
     third: '',
-    fourth: ''
+    fourth: '',
+    fifth: 'm'
   })
   const typeOfShape = useSelector( state => state.app.typeOfShape)
 
   const inputValidationFunc = (field) => {
-    return ( e ) => { 
+    return ( e, newAlignment ) => { 
       const value = e.target.value 
       // Здесь можно добавить проверок, но всё это надо выносить в отдельный компонент
-      if(value < 350) {
+      if(isNaN(+value)) {
         setInputs(
           (state) => {
-            return {...state, [field]: value}
+            return {...state, [field]: newAlignment}
           }
         )
       }
+      setInputs(
+        (state) => {
+          return {...state, [field]: value}
+        }
+      )
     }
   }
 
@@ -37,9 +45,22 @@ function App( props ) {
   return (
     <div className="App">
       <header className="App-header">
+        <ToggleButtonGroup
+          value={inputs.fifth}
+          exclusive
+          onChange={inputValidationFunc('fifth')}
+          aria-label="text alignment"
+        >
+          <ToggleButton value="m" aria-label="left aligned">
+            М
+          </ToggleButton>
+          <ToggleButton value="f" aria-label="centered">
+            Ж
+          </ToggleButton>
+        </ToggleButtonGroup>
         <TextField
           id="chest-girth"
-          label="Обхват груди"
+          label="Ширина плеч"
           variant="outlined"
           // fullWidth
           margin="normal"
@@ -77,16 +98,17 @@ function App( props ) {
         <Button
           variant="contained"
           color="secondary"
-          disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth) } 
+          disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth && inputs.fifth) } 
           onClick={ () => { 
             dispatch(
               {
                 type: 'SHAPE_METRICS', 
                 payload: {
-                  chest: inputs.first,
+                  shoulders: inputs.first,
                   waist: inputs.second,
                   hips: inputs.third,
-                  height: inputs.fourth
+                  height: inputs.fourth,
+                  sex: inputs.fifth
                 } 
               }
             ) 
