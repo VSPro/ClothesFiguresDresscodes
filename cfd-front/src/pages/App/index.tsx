@@ -10,30 +10,30 @@ import './App.css';
 
 // import TestContainer from '../TestContainer/'
 
-function App( props ) {
+function App( props: any ) {
   
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<any>({
     first: '',
     second: '',
     third: '',
     fourth: '',
     fifth: 'm'
   })
-  const typeOfShape = useSelector( state => state.app.typeOfShape)
+  const typeOfShape = useSelector( (state: any) => state.app.typeOfShape)
 
-  const inputValidationFunc = (field) => {
-    return ( e, newAlignment ) => { 
+  const inputValidationFunc = (field: string) => {
+    return ( e: any, newAlignment: any ) => { 
       const value = e.target.value 
       // Здесь можно добавить проверок, но всё это надо выносить в отдельный компонент
       if(isNaN(+value)) {
         setInputs(
-          (state) => {
+          (state: any) => {
             return {...state, [field]: newAlignment}
           }
         )
       }
       setInputs(
-        (state) => {
+        (state: any) => {
           return {...state, [field]: value}
         }
       )
@@ -66,7 +66,7 @@ function App( props ) {
           margin="normal"
           type='number'
           value={ inputs.first }
-          onChange={ inputValidationFunc('first') }
+          onChange={ inputValidationFunc('first') as any}
         />
         <TextField
           id="waist-circumference"
@@ -75,7 +75,7 @@ function App( props ) {
           margin="normal"
           type='number'
           value={ inputs.second }
-          onChange={ inputValidationFunc('second') }
+          onChange={ inputValidationFunc('second') as any}
         />
         <TextField
           id="hip-girth"
@@ -84,7 +84,7 @@ function App( props ) {
           margin="normal"
           type='number'
           value={ inputs.third }
-          onChange={ inputValidationFunc('third') }
+          onChange={ inputValidationFunc('third') as any }
         />
         <TextField
           id="height"
@@ -93,7 +93,7 @@ function App( props ) {
           margin="normal"
           type='number'
           value={ inputs.fourth }
-          onChange={ inputValidationFunc('fourth') }
+          onChange={ inputValidationFunc('fourth') as any }
         />
         <Button
           variant="contained"
