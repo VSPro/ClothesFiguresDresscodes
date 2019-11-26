@@ -6,9 +6,9 @@
 
 import shapeTypeDetermination from './shapeTypeEstimating'
 
-const mockFetch = {}
+const mockFetch = { get: {} }
 
-mockFetch.get = (path, params) => {
+mockFetch.get = (path: any, params: any) => {
     switch (path) {
         case '/find-type-of-shape':
         return shapeTypeDetermination(params.payload)

@@ -3,14 +3,15 @@
  * то эту ф-цию надо вызвать в саге
  * Методика расчёта описана в файле гугл-док, ссылка на который приведена в README
  */
-export default function shapeTypeDetermination({shoulders, waist, hips, height, sex}) {
+export default function shapeTypeDetermination(
+    {shoulders, waist, hips, height, sex} : { shoulders: number, waist: number, hips: number, height: number, sex: string }) {
     /**
      * Ф-ция определения удлинения тела
      * @param {number} shoulders 
      * @param {number} height 
      * @param {string} sex 
      */
-    function elongationDetermination(shoulders, height, sex) {
+    function elongationDetermination(shoulders: number, height: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
         const elongationFields_M = [6, 4.5, 3.5, 2.5]
@@ -48,7 +49,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
      * @param {number} shoulders 
      * @param {number} hips 
      */
-    function majorSizeDetermination(shoulders, hips, sex) {
+    function majorSizeDetermination(shoulders: number, hips: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
         const majorSizeFields_M = [0.7, 1, 1.2, 1.5]
@@ -63,7 +64,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
             if(ratioOfSizes < majorSizeFields_M[0] || ratioOfSizes > majorSizeFields_M[majorSizeFields_M.length]) {
                 return 0
             }
-            majorSizeFields_M.reduce((acc, item, index) => {
+            majorSizeFields_M.reduce((acc: any, item: any, index: number) => {
                 if(acc >= item) {        
                     categoryByMajorSize = ++index
                 }
@@ -73,7 +74,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
             if(ratioOfSizes < majorSizeFields_F[0] || ratioOfSizes > majorSizeFields_F[majorSizeFields_F.length]) {
                 return 0
             }
-            majorSizeFields_F.reduce((acc, item, index) => {
+            majorSizeFields_F.reduce((acc: any, item: any, index: number) => {
                 if(acc >= item) {        
                     categoryByMajorSize = ++index
                 }
@@ -90,7 +91,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
      * @param {number} hips 
      * @param {string} sex 
      */
-    function degreeOfWidth(shoulders, waist, hips, sex) {
+    function degreeOfWidth(shoulders: number, waist: number, hips: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
         const degreeOfWidthFields_M = [1.5, 1.1, 0.8, 0.5]
@@ -105,7 +106,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
             if(ratioOfSizes > degreeOfWidthFields_M[0] || ratioOfSizes < degreeOfWidthFields_M[degreeOfWidthFields_M.length]) {
                 return 0
             }
-            degreeOfWidthFields_M.reduce((acc, item, index) => {
+            degreeOfWidthFields_M.reduce((acc: any, item: any, index: number) => {
                 if(acc <= item) {        
                     categoryByDegreeOfWidth = ++index
                 }
@@ -115,7 +116,7 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
             if(ratioOfSizes > degreeOfWidthFields_F[0] || ratioOfSizes < degreeOfWidthFields_F[degreeOfWidthFields_F.length]) {
                 return 0
             }
-            degreeOfWidthFields_F.reduce((acc, item, index) => {
+            degreeOfWidthFields_F.reduce((acc: any, item: any, index: number) => {
                 if(acc <= item) {        
                     categoryByDegreeOfWidth = ++index
                 }
@@ -133,10 +134,10 @@ export default function shapeTypeDetermination({shoulders, waist, hips, height, 
      * @param {number} height 
      * @param {string} sex 
      */
-    function estimateTypeOfShape(shoulders, waist, hips, height, sex) {
-        const categoryByElongation = elongationDetermination(shoulders, height, sex)
-        const categoryByMajorSize = majorSizeDetermination(shoulders, hips, sex)
-        const categoryByDegreeOfWidth = degreeOfWidth(shoulders, waist, hips, sex)
+    function estimateTypeOfShape(shoulders: number, waist: number, hips: number, height: number, sex: string) {
+        const categoryByElongation: any = elongationDetermination(shoulders, height, sex)
+        const categoryByMajorSize: any = majorSizeDetermination(shoulders, hips, sex)
+        const categoryByDegreeOfWidth: any = degreeOfWidth(shoulders, waist, hips, sex)
         
         // TODO: Написано не оптимально, проверку на сообветствие можно сделать раньше
         let typeOfShape = []

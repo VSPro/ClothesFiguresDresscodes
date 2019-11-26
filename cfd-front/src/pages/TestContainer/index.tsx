@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-function TestContainer( props ) {
+function TestContainer( props: any ) {
 
     const dispatch = useDispatch()
-    const testData = useSelector( store => store.test.testItem )
+    const testData = useSelector( (store: any) => store.test.testItem )
 
     // console.log('I\'m called from TestContainer component', props)
 
