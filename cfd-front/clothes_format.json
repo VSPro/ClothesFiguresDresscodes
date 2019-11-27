@@ -1,0 +1,61 @@
+{
+	"figure": {
+		"type": "B1",
+		"shoulder-width": 90,
+		"shoe-size": 45,
+		"hand-circumference": 20,
+		"bust-girth": 90,
+		"waist-size": 60,
+		"hip-measurement": 90,
+		"arm-length": 90,
+		"leg-length": 90,
+		"height": 180,
+		"neck-size": 20,
+		"head-circumference": 45,
+		"underbust-measurement": 0,
+		"muscules": "X",
+		"legs_bowing": "X"
+	},
+	"where_to_wear": {
+		"style": "X",
+		"season": 
+			[
+				"summer",
+				"autumn",
+				"winter",
+				"spring"
+			]
+	},
+	"class": {
+		"outerwear": "X",
+		"basic": [
+			"hats",
+			"scarves",
+			"shirts",
+			"trousers",
+			"shoes"
+
+		],
+		"underwear": "X",
+		"accessories": "X"
+
+	},
+	"color": "red",
+	"gender": ["male", "female"],
+	"international size": [
+			"XXS",
+			"XS",
+			"S",
+			"M",
+			"L",
+			"XL",
+			"XXL"
+		],
+	"currency": "USD",
+	"brand": "DG",
+	"price": 123,
+	"url": "https://www.google.ru",
+	"description": "ParaPaPaPa",
+	"goodsName": "My TShort",
+	"quantity": 10
+}
