@@ -14,8 +14,8 @@ export default function shapeTypeDetermination(
     function elongationDetermination(shoulders: number, height: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
-        const elongationFields_M = [6, 4.5, 3.5, 2.5]
-        const elongationFields_F = [6, 4.5, 3.5, 2.5]
+        const elongationFields_M = [6, 4.5, 3.5]  // [6, 4.5, 3.5, 2.5]
+        const elongationFields_F = [6, 4.5, 3.5]
 
         const elongation = (+height)/(+shoulders)
         // Чем выше категория, тем шире человек
@@ -31,7 +31,7 @@ export default function shapeTypeDetermination(
                 return acc
             }, elongation)
         } else {
-            if(elongation > elongationFields_F[0] || elongation < elongationFields_F[elongationFields_M.length]) {
+            if(elongation > elongationFields_F[0] || elongation < elongationFields_F[elongationFields_F.length]) {
                 return 0
             }
             elongationFields_F.reduce((acc, item, index) => {
@@ -52,8 +52,8 @@ export default function shapeTypeDetermination(
     function majorSizeDetermination(shoulders: number, hips: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
-        const majorSizeFields_M = [0.7, 1, 1.2, 1.5]
-        const majorSizeFields_F = [0.7, 1, 1.2, 1.5]
+        const majorSizeFields_M = [0.7, 1, 1.2] // [0.7, 1, 1.2, 1.5]
+        const majorSizeFields_F = [0.7, 1, 1.2]
         
         const hipsProjection = (+hips)/3
         const ratioOfSizes = hipsProjection/shoulders
@@ -94,8 +94,8 @@ export default function shapeTypeDetermination(
     function degreeOfWidth(shoulders: number, waist: number, hips: number, sex: string) {
         // Потребуется уточнить параметры для кажного из полов
         // Эти данные можно сделать в виде параметра
-        const degreeOfWidthFields_M = [1.5, 1.1, 0.8, 0.5]
-        const degreeOfWidthFields_F = [1.5, 1.1, 0.8, 0.5]
+        const degreeOfWidthFields_M = [1.5, 1.1, 0.8] // [1.5, 1.1, 0.8, 0.5]
+        const degreeOfWidthFields_F = [1.5, 1.1, 0.8]
         
         const chest = (+shoulders)*3
         const middleWidth = (+hips + chest)/2 
