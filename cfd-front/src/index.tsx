@@ -14,7 +14,7 @@ ReactDOM.render(
         <Router>
             <Switch>
                 <Route exact path='/' component={ App } />
-                <Route path='/testRoute' component={ SecondTestContainer } />
+                <Route path='/filters' component={ SecondTestContainer } />
                 <Route component={ NotFoundPage } />
             </Switch>
         </Router>
