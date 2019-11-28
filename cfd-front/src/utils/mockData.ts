@@ -5,13 +5,17 @@
  */
 
 import shapeTypeDetermination from './shapeTypeEstimating'
+import sizeDetermination from './sizeEstimating'
 
 const mockFetch = { get: {} }
 
 mockFetch.get = (path: any, params: any) => {
     switch (path) {
         case '/find-type-of-shape':
-        return shapeTypeDetermination(params.payload)
+        return {
+            shape: shapeTypeDetermination(params.payload),
+            sizeParams: sizeDetermination(params.payload)
+        }
     }
 }
 

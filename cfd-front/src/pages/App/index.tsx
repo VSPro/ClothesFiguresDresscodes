@@ -17,9 +17,11 @@ function App( props: any ) {
     second: '',
     third: '',
     fourth: '',
-    fifth: 'm'
+    fifth: 'm',
+    sixth: ''
   })
-  const typeOfShape = useSelector( (state: any) => state.app.typeOfShape)
+  const typeOfShape = useSelector( (state: any) => state.app.paramsOfUser.shape)
+  const size = useSelector( (state: any) => state.app.paramsOfUser.sizeParams.size)
 
   const inputValidationFunc = (field: string) => {
     return ( e: any, newAlignment: any ) => { 
@@ -69,6 +71,16 @@ function App( props: any ) {
           onChange={ inputValidationFunc('first') as any}
         />
         <TextField
+          id="chest-girth"
+          label="Обхват груди"
+          variant="outlined"
+          // fullWidth
+          margin="normal"
+          type='number'
+          value={ inputs.sixth }
+          onChange={ inputValidationFunc('sixth') as any}
+        />
+        <TextField
           id="waist-circumference"
           label="Обхват талии"
           variant="outlined"
@@ -98,13 +110,14 @@ function App( props: any ) {
         <Button
           variant="contained"
           color="secondary"
-          disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth && inputs.fifth) } 
+          disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth && inputs.fifth && inputs.sixth) } 
           onClick={ () => { 
             dispatch(
               {
                 type: 'SHAPE_METRICS', 
                 payload: {
                   shoulders: inputs.first,
+                  chest: inputs.sixth,
                   waist: inputs.second,
                   hips: inputs.third,
                   height: inputs.fourth,
@@ -120,6 +133,8 @@ function App( props: any ) {
         <div>
           <div>Ваш тип фигуры:</div>
           { typeOfShape }
+          <div>Ваш размер:</div>
+          { size }
         </div>
 
         {/* <TestContainer /> */}
