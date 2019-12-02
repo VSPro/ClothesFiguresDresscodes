@@ -2,7 +2,8 @@ type state = {
     paramsOfUser: {
         shape: string,
         sizeParams: {
-            size: string,
+            sizeOfChest: string,
+            sizeOfHips: string,
             height: number
         }
     }
@@ -13,7 +14,8 @@ const initialState: state = {
     paramsOfUser: {
         shape: '',
         sizeParams: {
-            size: '',
+            sizeOfChest: '',
+            sizeOfHips: '',
             height: 0
         }
     }
@@ -21,7 +23,7 @@ const initialState: state = {
 
 export default function appReducer(state = initialState, action: any) {
     switch (action.type) {
-        case 'TYPE_OF_SHAPE':
+        case 'PARAMS_OF_USER':
             return {...state, paramsOfUser: action.payload}
         default:
             return state
