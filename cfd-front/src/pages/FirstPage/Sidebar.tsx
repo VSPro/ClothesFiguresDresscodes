@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 export default function Sidebar(props: any) {
   const classes = useStyles();
   const { links, description, social, title } = props;
-console.log('fgfgfgfgfgfgf', links, props)
   return (
     <Grid item xs={12} md={4}>
       <Paper elevation={0} className={classes.sidebarAboutBox}>

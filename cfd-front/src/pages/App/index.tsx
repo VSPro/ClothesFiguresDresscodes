@@ -9,19 +9,13 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Form from './form'
-
 const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
-    // marginBottom: theme.spacing(8),
+    marginBottom: theme.spacing(5),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -32,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   titleForToggle: {
     marginTop: theme.spacing(1)
-  }
+  },
 }));
 
 function App( props: any ) {
@@ -172,19 +166,58 @@ function App( props: any ) {
             >
               Определить тип фигуры  
             </Button>
-
-      <article>
-        <div>Ваш тип фигуры:</div>
-        { typeOfShape }
-        <div>Ваш размер</div>
-        <p> по плечам: { size.sizeOfChest } </p>
-        <p> по бёдрам: { size.sizeOfHips } </p>
-      </article>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                Ваш тип фигуры:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                { typeOfShape ? typeOfShape : '~' }
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                Ваш размер по плечам:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                { size.sizeOfChest ? size.sizeOfChest : '~' }
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                Ваш размер по бёдрам:
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography 
+                variant="subtitle1"
+                noWrap
+              >
+                { size.sizeOfHips ? size.sizeOfHips : '~' }
+              </Typography>
+            </Grid>
           </Grid>
         </form>
       </div>
     </Container>
-  
   );
 }
 
