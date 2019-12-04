@@ -4,7 +4,8 @@ type state = {
         sizeParams: {
             sizeOfChest: string,
             sizeOfHips: string,
-            height: number
+            height: number,
+            shoes: number
         }
     }
 }
@@ -16,7 +17,8 @@ const initialState: state = {
         sizeParams: {
             sizeOfChest: '',
             sizeOfHips: '',
-            height: 0
+            height: 0,
+            shoes: 0
         }
     }
 }

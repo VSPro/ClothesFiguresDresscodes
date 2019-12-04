@@ -12,16 +12,16 @@ const useStyles = makeStyles(theme => ({
 
 export default function Main(props: any) {
   const classes = useStyles();
-  const { title } = props;
+  const { title1, title2 } = props;
 
   return (
     <Grid item xs={12} md={8}>
-      <Typography variant="h6" gutterBottom>
+      {/* <Typography variant="h6" gutterBottom>
         {title}
       </Typography>
-      <Divider />
+      <Divider /> */}
 
-      <App />
+      <App title1={ title1 } title2={ title2 } />
 
     </Grid>
   );

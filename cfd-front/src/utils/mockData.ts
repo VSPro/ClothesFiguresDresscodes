@@ -14,7 +14,7 @@ mockFetch.get = (path: any, params: any) => {
         case '/find-type-of-shape':
         return {
             shape: shapeTypeDetermination(params.payload),
-            sizeParams: sizeDetermination(params.payload)
+            sizeParams: {...sizeDetermination(params.payload), shoes: params.payload.shoes}
         }
     }
 }

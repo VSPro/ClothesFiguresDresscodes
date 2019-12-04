@@ -111,7 +111,10 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="Определить тип фигуры и задать особенности внешности для дальнейшего подбора одежды:"/>
+            <Main 
+                title1="Определить тип фигуры и подходящие размеры одежды:"
+                title2="Задать дополнитиельные размеры и указать особенности внешнего вида:"    
+            />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}

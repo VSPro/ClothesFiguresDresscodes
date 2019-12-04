@@ -34,7 +34,7 @@ function sizeEstimating(sex: string, checkingParam: number, listsOfSizes: { male
 }
 
 export default function({chest, hips, height, sex}: params) {
-    // Рост здесь передавался из предположения, что его тоже не плохо приводить к дискретным параметрам
+    // Рост здесь передавался из предположения, что его тоже не плохо бы приводить к дискретным параметрам, сделав к функциям ниже ещё одну
     const sizeOfChest = sizeEstimating(sex, chest, {male: listOfSizesByChest_M, female: listOfSizesByChest_F})
     const sizeOfHips = sizeEstimating(sex, hips, {male: listOfSizeByHips_M, female: listOfSizeByHips_F})
 
