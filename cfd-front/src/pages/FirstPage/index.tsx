@@ -27,8 +27,8 @@ const useStyles = makeStyles(theme => ({
 const sections = [
   { title: 'О сервисе', url: '#' },
   { title: 'Таблицы размеров', url: '#' },
-  { title: 'Как ухаживать за одеждой', url: '#' },
-  { title: 'Как снимать мерки c фигуры', url: '#' }
+  { title: 'Об осанке и ногах', url: '#' },
+  { title: 'Снятие мерок', url: '#' }
 ];
 
 const mainFeaturedPost = {
@@ -76,7 +76,7 @@ const sidebar = {
     { title: 'Типы фигур', url: '#' },
     { title: 'Дресс-коды', url: '#' },
     { title: 'Наши таблицы размеров', url: '#' },
-    { title: 'Как ухаживать за одеждой', url: '#' },
+    { title: 'Об осанке и ногах', url: '#' },
   ],
   social: [
     { name: 'GitHub', icon: GitHubIcon },

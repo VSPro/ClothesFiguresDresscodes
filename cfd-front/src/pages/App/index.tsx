@@ -39,7 +39,7 @@ function App( props: any ) {
       <Divider />
       <Container component="main" maxWidth="xs">        
         <div className={classes.paper}>
-          {/* <SecondInputsForm /> */}
+          <SecondInputsForm />
         </div>
       </Container>
     </>

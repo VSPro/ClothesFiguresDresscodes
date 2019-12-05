@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Open Sans' 
   },
   toolbarSecondary: {
-    justifyContent: 'flex-start',  // 'space-between',
+    justifyContent: 'space-between',
     overflowX: 'auto',
   },
   toolbarLink: {
