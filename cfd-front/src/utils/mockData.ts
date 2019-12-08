@@ -12,10 +12,13 @@ const mockFetch = { get: {} }
 mockFetch.get = (path: any, params: any) => {
     switch (path) {
         case '/find-type-of-shape':
-        return {
-            shape: shapeTypeDetermination(params.payload),
-            sizeParams: {...sizeDetermination(params.payload), shoes: params.payload.shoes}
-        }
+            return {
+                shape: shapeTypeDetermination(params.payload),
+                sizeParams: {...sizeDetermination(params.payload), shoes: params.payload.shoes}
+            }
+        case '/relevant-photos':
+            console.log('klklklklklklklklklkl', params.payload)
+            return ['https://source.unsplash.com/random', 'https://source.unsplash.com/random', 'https://source.unsplash.com/random', 'https://source.unsplash.com/random',]
     }
 }
 

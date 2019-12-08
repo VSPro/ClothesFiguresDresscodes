@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,6 +22,8 @@ function App( props: any ) {
   const { title1, title2 } = props
   const classes = useStyles();
 
+  const [secondFotmIsDisable, setSecondFotmIsDisable] = useState(true)
+
   return (
     <>
       <Typography variant="h6" gutterBottom>
@@ -30,7 +32,7 @@ function App( props: any ) {
       <Divider />
       <Container component="main" maxWidth="xs">        
         <div className={classes.paper}>
-          <FirstInputsForm />
+          <FirstInputsForm setSecondFotmIsDisable={setSecondFotmIsDisable} />
         </div>
       </Container>
       <Typography variant="h6" gutterBottom>
@@ -39,7 +41,7 @@ function App( props: any ) {
       <Divider />
       <Container component="main" maxWidth="xs">        
         <div className={classes.paper}>
-          <SecondInputsForm />
+          <SecondInputsForm isDisable={secondFotmIsDisable} />
         </div>
       </Container>
     </>

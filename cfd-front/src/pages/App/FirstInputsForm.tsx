@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FirstInputsForm() {
+export default function FirstInputsForm(props: any) {
+    const setSecondFotmIsDisable = props.setSecondFotmIsDisable
     const classes = useStyles();
   
     const [inputs, setInputs] = useState<any>({
@@ -144,11 +145,12 @@ export default function FirstInputsForm() {
                 </Grid>
                 <Button
                     fullWidth
-                    variant="contained"
+                    variant="outlined"
                     color="secondary"
                     className={classes.submit}
                     disabled={ !(inputs.first && inputs.second && inputs.third && inputs.fourth && inputs.fifth && inputs.sixth && inputs.seventh) } 
                     onClick={ () => { 
+                        setSecondFotmIsDisable( false )
                         dispatch(
                             {
                                 type: 'SHAPE_METRICS', 

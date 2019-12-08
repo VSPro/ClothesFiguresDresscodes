@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +10,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Select from '@material-ui/core/Select';import Container from '@material-ui/core/Container';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+
+import { withRouter } from 'react-router-dom'
 
 import { SwatchesPicker } from 'react-color';
 
@@ -37,46 +40,36 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     minWidth: 120,
   },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
 }));
 
-export default function FirstInputsForm() {
+// export default function FirstInputsForm(props: any) {
+function FirstInputsForm(props: any) {
+    const isDisable = props.isDisable
     const classes = useStyles();
   
     const [inputs, setInputs] = useState<any>({
-        first: '',
-        second: '',
-        third: '',
         fourth: '',
-        sixth: ''
     })
     const [isHairColorPickerShow, setShowingOfHairColorPicker] = useState<any>(false)
     const [isSkinColorPickerShow, setShowingOfSkinColorPicker] = useState<any>(false)
     const [colorOfHair, setColorOfHair] = useState<any>('#ff5722')
     const [colorOfSkin, setColorOfSkin] = useState<any>('#ffecb3')
 
-    const [select, setSelect] = useState<any>('')
-    const [select2, setSelect2] = useState<any>('')
+    const [posture, setPosture] = useState<any>('')
+    const [legs, setLegs] = useState<any>('')
+    const [age, setAge] = useState<any>('')
 
     const typeOfShape = useSelector( (state: any): Array<number | string> => state.app.paramsOfUser.shape)
     const size = useSelector( (state: any): {sizeOfChest: string, sizeOfHips: string} => state.app.paramsOfUser.sizeParams)
-
-    const inputValidationFunc = (field: string) => {
-        return ( e: any, newAlignment: any ) => { 
-            const value = e.target.value 
-            if(isNaN(+value)) {
-                setInputs(
-                    (state: any) => {
-                        return {...state, [field]: newAlignment}
-                    }
-                )
-            }
-            setInputs(
-                (state: any) => {
-                    return {...state, [field]: value}
-                }
-            )
-        }
-    }
+    const cards = useSelector( (state: any) => state.app.relevantPhotos)
 
     const dispatch = useDispatch()    
 
@@ -155,9 +148,9 @@ export default function FirstInputsForm() {
                         <Select
                             labelId="demo-simple-select-helper-label"
                             id="demo-simple-select-helper"
-                            value={select2}
+                            value={legs}
                             onChange={(e) => {
-                                setSelect2(e.target.value)
+                                setLegs(e.target.value)
                             }}
                         >
                             <MenuItem value="">
@@ -176,9 +169,9 @@ export default function FirstInputsForm() {
                         <Select
                             labelId="demo-simple-select-helper-label"
                             id="demo-simple-select-helper"
-                            value={select}
+                            value={posture}
                             onChange={(e) => {
-                                setSelect(e.target.value)
+                                setPosture(e.target.value)
                             }}
                         >
                             <MenuItem value="">
@@ -197,8 +190,8 @@ export default function FirstInputsForm() {
                         label="Возраст"
                         margin="normal"
                         type='number'
-                        value={ inputs.second }
-                        onChange={ inputValidationFunc('second') as any}
+                        value={ age }
+                        onChange={ e => { setAge(e.target.value) }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={12}>
@@ -219,20 +212,20 @@ export default function FirstInputsForm() {
                 </Grid>
                 <Button
                     fullWidth
-                    variant="contained"
+                    variant="outlined"
                     color="secondary"
                     className={classes.submit}
-                    disabled={ true } 
+                    disabled={ !(colorOfSkin && colorOfHair && legs !== '' && posture !== '' && age !== '' && !isDisable)  }
                     onClick={ () => { 
                         dispatch(
                             {
-                                type: 'SHAPE_METRICS', 
+                                type: 'APPEARANCE_FEATURES', 
                                 payload: {
-                                    shoulders: inputs.first,
-                                    chest: inputs.sixth,
-                                    waist: inputs.second,
-                                    hips: inputs.third,
-                                    height: inputs.fourth
+                                    colorOfSkin: colorOfSkin,
+                                    colorOfHair: colorOfHair,
+                                    curvatureOfLegs: legs,
+                                    curvatureOfBack: posture,
+                                    age: inputs.fourth
                                 } 
                             }
                         ) 
@@ -240,55 +233,41 @@ export default function FirstInputsForm() {
                 >
                     Подобрать снимки схожих с Вами людей  
                 </Button>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        Ваш тип фигуры:
-                    </Typography>
+                {/* TODO: вынести нижний блок по отрисовке картинок в компонент выше */}
+                <Grid container spacing={2}>
+                    { cards &&
+                        cards.map((card: any) => (
+                        <Grid item key={card} xs={12} sm={6} >
+                            <Card className={classes.card}>
+                            <CardMedia
+                                className={classes.cardMedia}
+                                image={card}
+                                title="Image title"
+                            />
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                посмотреть
+                                </Button>
+                            </CardActions>
+                            </Card>
+                        </Grid>
+                    ))}
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        { typeOfShape ? typeOfShape : '~' }
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                     Ваш размер по плечам:
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        { size.sizeOfChest ? size.sizeOfChest : '~' }
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        Ваш размер по бёдрам:
-                    </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Typography 
-                        variant="subtitle1"
-                        noWrap
-                    >
-                        { size.sizeOfHips ? size.sizeOfHips : '~' }
-                    </Typography>
-                </Grid>
+                <Button
+                    fullWidth
+                    variant="contained"
+                    color="secondary"
+                    className={classes.submit}
+                    disabled={ !(colorOfSkin && colorOfHair && legs !== '' && posture !== '' && age !== '' && !isDisable)  }
+                    onClick={ (e) => { 
+                        props.history.push('/filters')
+                    }}
+                >
+                    Перейти к подбору одежды
+                </Button>
             </Grid>
         </form>  
     )
 }
+
+export default withRouter(FirstInputsForm)
