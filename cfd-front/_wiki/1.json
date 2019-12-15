@@ -1,0 +1,22 @@
+{
+    "paramsOfUser": {
+        "shape": [
+            "1",
+            "A"
+        ],
+        "sizeParams": {
+            "sizeOfChest": "S",
+            "sizeOfHips": "XS",
+            "sizeOfHeight": "L",
+            "sizeOfShoes": "40"
+        },
+        "appearanceParams": {
+            "colorOfHair": "",
+            "colorOfSkin": "",
+            "legsCurvature": "",
+            "postureCurvature": "",
+            "ageInterval": "",
+            "sex": "1"
+        }
+    }
+}

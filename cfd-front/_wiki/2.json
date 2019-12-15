@@ -1,0 +1,24 @@
+{
+    "firstFilter": {
+        "dressCode": "",
+        "environment": "winter",
+        "priseInterval": "low",
+        "majorColour": ""
+    },
+    "secondFilter": {
+        "outerwear": [
+            "coatsJackets",
+            "hats",
+            "boots"
+        ],
+        "wear": [
+
+        ],
+        "underwear": [
+
+        ],
+        "accessories": [
+
+        ]
+    }
+}
