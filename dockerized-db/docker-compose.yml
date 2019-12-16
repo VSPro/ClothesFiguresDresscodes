@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  postgres1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'postgres-ssl:11'
+    restart: 'unless-stopped'
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_MULTIPLE_DATABASES: portalbackend,portalbackend_test
+      POSTGRES_USER: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'db_data:/var/lib/postgresql/data'
+
+  consul:
+    image: 'consul'
+    restart: 'unless-stopped'
+    container_name: consul
+    ports:
+      - '8500:8500'
+    command: 'agent -dev -client=0.0.0.0 -bind=0.0.0.0'
+
+volumes:
+  db_data:
