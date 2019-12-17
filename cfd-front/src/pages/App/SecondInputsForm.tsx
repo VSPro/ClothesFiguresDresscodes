@@ -10,7 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';import Container from '@material-ui/core/Container';
+import Select from '@material-ui/core/Select';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -55,7 +55,7 @@ function FirstInputsForm(props: any) {
     const isDisable = props.isDisable
     const classes = useStyles();
   
-    const [inputs, setInputs] = useState<any>({
+    const [inputs] = useState<any>({
         fourth: '',
     })
     const [isHairColorPickerShow, setShowingOfHairColorPicker] = useState<any>(false)
@@ -67,8 +67,8 @@ function FirstInputsForm(props: any) {
     const [legs, setLegs] = useState<any>('')
     const [age, setAge] = useState<any>('')
 
-    const typeOfShape = useSelector( (state: any): Array<number | string> => state.app.paramsOfUser.shape)
-    const size = useSelector( (state: any): {sizeOfChest: string, sizeOfHips: string} => state.app.paramsOfUser.sizeParams)
+    // const typeOfShape = useSelector( (state: any): Array<number | string> => state.app.paramsOfUser.shape)
+    // const size = useSelector( (state: any): {sizeOfChest: string, sizeOfHips: string} => state.app.paramsOfUser.sizeParams)
     const cards = useSelector( (state: any) => state.app.relevantPhotos)
 
     const dispatch = useDispatch()    

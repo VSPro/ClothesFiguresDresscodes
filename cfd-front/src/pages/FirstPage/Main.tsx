@@ -1,17 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 
 import App from '../App/'
 
-const useStyles = makeStyles(theme => ({
+// const useStyles = makeStyles(theme => ({
 
-}));
+// }));
 
 export default function Main(props: any) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const { title1, title2 } = props;
 
   return (
