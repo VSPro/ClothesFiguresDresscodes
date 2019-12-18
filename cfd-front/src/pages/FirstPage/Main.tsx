@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 // import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 
-import App from '../App/'
+import App from "./index";
 
 // const useStyles = makeStyles(theme => ({
 
@@ -19,8 +19,7 @@ export default function Main(props: any) {
       </Typography>
       <Divider /> */}
 
-      <App title1={ title1 } title2={ title2 } />
-
+      <App title1={title1} title2={title2} />
     </Grid>
   );
 }
