@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { SwatchesPicker } from "react-color";
+
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -11,13 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardMedia from "@material-ui/core/CardMedia";
-
-import { withRouter } from "react-router-dom";
-
-import { SwatchesPicker } from "react-color";
+import PhotoViewer from "./PhotoViewer";
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -49,8 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// export default function FirstInputsForm(props: any) {
-function FirstInputsForm(props: any) {
+const SecondInputForm = (props: any) => {
   const isDisable = props.isDisable;
   const classes = useStyles();
 
@@ -72,7 +68,6 @@ function FirstInputsForm(props: any) {
 
   // const typeOfShape = useSelector( (state: any): Array<number | string> => state.app.paramsOfUser.shape)
   // const size = useSelector( (state: any): {sizeOfChest: string, sizeOfHips: string} => state.app.paramsOfUser.sizeParams)
-  const cards = useSelector((state: any) => state.app.relevantPhotos);
 
   const dispatch = useDispatch();
 
@@ -237,26 +232,7 @@ function FirstInputsForm(props: any) {
         >
           Подобрать снимки схожих с Вами людей
         </Button>
-        {/* TODO: вынести нижний блок по отрисовке картинок в компонент выше */}
-        <Grid container spacing={2}>
-          {cards &&
-            cards.map((card: any) => (
-              <Grid item key={card} xs={12} sm={6}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={card}
-                    title="Image title"
-                  />
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      посмотреть
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-        </Grid>
+        <PhotoViewer />
         <Button
           fullWidth
           variant="contained"
@@ -281,6 +257,6 @@ function FirstInputsForm(props: any) {
       </Grid>
     </form>
   );
-}
+};
 
-export default withRouter(FirstInputsForm);
+export default withRouter(SecondInputForm);
