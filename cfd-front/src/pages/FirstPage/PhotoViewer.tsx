@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { oc } from 'ts-optchain';
 
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -40,12 +41,11 @@ const useStyles = makeStyles(theme => ({
 
 const PhotoViewer = (props: any) => {
   const classes = useStyles();
-  const cards = useSelector((state: any) => state.app.relevantPhotos);
+  const cards = oc(useSelector((state: any) => state.app.relevantPhotos))([]);
 
   return (
     <Grid container spacing={2}>
-      {cards &&
-        cards.map((card: any) => (
+      {cards.map((card: any) => (
           <Grid item key={card} xs={12} sm={6}>
             <Card className={classes.card}>
               <CardMedia
