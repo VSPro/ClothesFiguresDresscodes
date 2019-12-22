@@ -1,0 +1,43 @@
+version: '3.3'
+services:
+  postgres1:
+    image: 'postgres:11'
+    restart: 'unless-stopped'
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_MULTIPLE_DATABASES: portalbackend,portalbackend_test
+      POSTGRES_USER: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'my_dbdata:/var/lib/postgresql/data'
+      - './database:/docker-entrypoint-initdb.d'
+
+  consul:
+    image: 'consul'
+    ports:
+      - '8500:8500'
+    command: 'agent -dev -client=0.0.0.0 -bind=0.0.0.0'
+
+  portal_backend:
+    image: 'artifactory.tools.incountry.com:5000/engineering/portal-backend:latest'
+    ports:
+      - '5000:5000'
+    environment:
+      CONSUL_ADDR: consul:8500
+      AWS_ACCESS_KEY_ID: 1234
+      AWS_SECRET_ACCESS_KEY: 1233232
+      AWS_DEFAULT_REGION: us-east-1
+      DB_USERNAME: postgres
+      DB_PASSWORD: admin
+      DB_HOST: postgres1
+      DB_PORT: 5432
+      DB_DATABASE: portalbackend
+    env_file:
+      - .env
+    depends_on:
+      - consul
+      - postgres1
+
+volumes:
+  my_dbdata:

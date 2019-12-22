@@ -16,9 +16,9 @@ import IconButton from "@material-ui/core/IconButton";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 // import FormHelperText from '@material-ui/core/FormHelperText';
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -120,11 +120,11 @@ const useStyles = makeStyles(theme => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 220,
+    minWidth: 220
   },
   selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
+    marginTop: theme.spacing(2)
+  }
 }));
 
 export default () => {
@@ -133,10 +133,10 @@ export default () => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(0);
   const [state, setState] = React.useState({
-    style: '',
-    season: '',
+    style: "",
+    season: "",
     price: 0,
-    name: 'hai',
+    name: "hai"
   });
 
   const inputLabel = React.useRef<any>(null);
@@ -148,7 +148,7 @@ export default () => {
   const handleSelectChange = (name: any) => (event: any) => {
     setState({
       ...state,
-      [name]: event.target.value,
+      [name]: event.target.value
     });
   };
 
@@ -165,7 +165,7 @@ export default () => {
   };
 
   return (
-   //   <Link to='/'>
+    //   <Link to='/'>
     //       Вернуться назад
     //   </Link>
 
@@ -221,14 +221,16 @@ export default () => {
         </div>
         <Divider />
         <List>
-          {["Basic", "Outerwear", "Underwear", "Accessories"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {["Basic", "Outerwear", "Underwear", "Accessories"].map(
+            (text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
         <Divider />
         <List>
@@ -248,12 +250,8 @@ export default () => {
           [classes.contentShift]: open
         })}
       >
-        
         <div className={classes.drawerHeader} />
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Box>
             <FormControl variant="outlined" className={classes.formControl}>
               <InputLabel ref={inputLabel} htmlFor="selector-style">
@@ -262,11 +260,11 @@ export default () => {
               <Select
                 native
                 value={state.style}
-                onChange={handleSelectChange('style')}
+                onChange={handleSelectChange("style")}
                 labelWidth={labelWidth}
                 inputProps={{
-                  name: 'style',
-                  id: 'selector-style',
+                  name: "style",
+                  id: "selector-style"
                 }}
               >
                 <option value="" />
@@ -284,11 +282,11 @@ export default () => {
               <Select
                 native
                 value={state.season}
-                onChange={handleSelectChange('season')}
+                onChange={handleSelectChange("season")}
                 labelWidth={labelWidth}
                 inputProps={{
-                  name: 'season',
-                  id: 'selector-season',
+                  name: "season",
+                  id: "selector-season"
                 }}
               >
                 <option value="" />
@@ -307,11 +305,11 @@ export default () => {
               <Select
                 native
                 value={state.price}
-                onChange={handleSelectChange('price')}
+                onChange={handleSelectChange("price")}
                 labelWidth={labelWidth}
                 inputProps={{
-                  name: 'price',
-                  id: 'selector-price',
+                  name: "price",
+                  id: "selector-price"
                 }}
               >
                 <option value="" />

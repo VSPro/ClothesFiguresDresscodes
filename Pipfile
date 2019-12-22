@@ -1,0 +1,48 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+flask = "==1.0.2"
+requests = "*"
+pyjwt = "==1.7.1"
+flask-cors = "==3.0.7"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+psycopg2-binary = "*"
+sqlalchemy = "*"
+flask-user = "*"
+flask-script = "*"
+pytest = "*"
+flask-bcrypt = "*"
+pika = "*"
+
+[dev-packages]
+ipdb = "*"
+flake8 = "*"
+faker = "*"
+black = "*"
+mimesis = "*"
+pytest = "*"
+pytest-mock = "*"
+pytest-dotenv = "*"
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+psql = "docker-compose -f scripts/docker-compose-pg-consul.yaml exec postgres1 psql -U postgres -d portalbackend"
+psql-prod = "psql postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_DATABASE}"
+tests = "pipenv run pytest --disable-pytest-warnings -s"
+db-start = "docker-compose -f dockerized-db/docker-compose.yml up -d"
+db-stop = "docker-compose -f dockerized-db/docker-compose.yml down"
+server = "python -m flask run -p 8080"
+adminserver = "python -m admin.app"
+server2 = "python -m flask run -p 5001"
+testserver = "python -c 'import portalbackend'"
+upgrade = "python -m flask db upgrade"
+buildutils = "sh scripts/build_incutils.sh"
+
+[pipenv]
+allow_prereleases = true
