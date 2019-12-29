@@ -7,6 +7,9 @@ https://www.figma.com/proto/c1tNuUf3JMcIFNt08sUWoz/Untitled?scaling=min-zoom&nod
 Более актуальный прототип здесь:
 https://www.figma.com/file/UhClxa84qsjO8XayhT7Q1w/Untitled?node-id=0%3A1
 
+Файл с текстовками сервиса:
+https://docs.google.com/document/d/1Fm-z6YrZ6p7nF0E21O45AJ8ab5F9-SKk2VNVuqlDOm0/edit?usp=sharing
+
 В папке "sketch" лежат паоаметризованные изображения фигур, сделанные в программе SolidEdge 2D drafting
 
 Краткое описание:
