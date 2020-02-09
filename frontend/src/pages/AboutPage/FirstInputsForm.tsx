@@ -36,11 +36,11 @@ export default function FirstInputsForm(props: any) {
   });
 
   const typeOfShape = useSelector(
-    (state: any): Array<number | string> => state.app.paramsOfUser.shape
+    (state: any): Array<number | string> => state.aboutPage.paramsOfUser.shape
   );
   const size = useSelector(
     (state: any): { sizeOfChest: string; sizeOfHips: string } =>
-      state.app.paramsOfUser.sizeParams
+      state.aboutPage.paramsOfUser.sizeParams
   );
 
   const inputValidationFunc = (field: string) => {
@@ -61,6 +61,7 @@ export default function FirstInputsForm(props: any) {
 
   return (
     <form className={classes.form} noValidate>
+      {/* TODO: Move all Grids to flex */}
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography

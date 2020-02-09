@@ -19,6 +19,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
+
 // import FormHelperText from '@material-ui/core/FormHelperText';
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -127,7 +129,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default () => {
+export default (props: any) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -330,6 +332,16 @@ export default () => {
             rutrum quisque non tellus. Convallis convallis tellus id interdum
             velit laoreet id donec ultrices.
           </Typography>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => {
+              // dispatch({ type: "TEST", payload: props.history.push });
+              props.history.push('/');
+            }}
+          >
+            На главную
+          </Button>
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Typography variant="h5">Scarves</Typography>
