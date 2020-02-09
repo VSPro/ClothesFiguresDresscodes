@@ -4,8 +4,8 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import FirstPage from "./pages/FirstPage/FirstPage";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import SecondTestContainer from "./pages/SecondTestContainer/";
-import NotFoundPage from "./pages/NotFoundPage/";
+import SecondTestContainer from "./pages/SecondTestContainer";
+import NotFoundPage from "./pages/NotFoundPage";
 
 ReactDOM.render(
   <Provider store={store}>
