@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 const PhotoViewer = (props: any) => {
   const classes = useStyles();
-  const cards = oc(useSelector((state: any) => state.app.relevantPhotos))([]);
+  const cards = oc(useSelector((state: any) => state.aboutPage.relevantPhotos))([]);
 
   return (
     <Grid container spacing={2}>

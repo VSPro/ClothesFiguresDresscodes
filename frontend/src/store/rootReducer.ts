@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import testReducer from "../pages/TestContainer/reducer";
-import appReducer from "../pages/FirstPage/reducer";
+import figureCalculationPageReducer from "../pages/FigureCalculationPage/reducer";
+import aboutPageReducer from "../pages/AboutPage/reducer";
+import filterPageReducer from "../pages/FiltersPage/reducer";
+
 
 export default combineReducers({
-  test: testReducer,
-  app: appReducer
+  figureCalculationPage: figureCalculationPageReducer,
+  aboutPage: aboutPageReducer,
+  filterPage: filterPageReducer,
 });
