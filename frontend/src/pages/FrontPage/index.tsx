@@ -1,17 +1,7 @@
 import React, { Fragment } from 'react';
 import { CssBaseline, Container } from '@material-ui/core';
-import Footer from './Footer';
-import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
-
-const sections = [
-  { title: 'О СЕРВИСЕ', url: '#' },
-  { title: 'ОЦЕНКА ФИГУРЫ', url: '#' },
-  { title: 'КАК СНИМАТЬ МЕРКИ', url: '#' },
-  { title: 'ТИРЫ ФИГУР', url: '#' },
-  { title: 'ПОДБОР ОДЕЖДЫ', url: '#' },
-  { title: 'bucket', url: '#', img: '' },
-];
+import MainLayout from '../../modules/MainLayout'
 
 const mainFeaturedPost = {
   title: 'Сервис-помощник по подбору одежды',
@@ -28,10 +18,10 @@ export default function FrontPage() {
     <Fragment>
       <CssBaseline />
       <Container>
-        <Header sections={sections} />
-        <MainFeaturedPost mainFeaturedPost={mainFeaturedPost} />
+        <MainLayout>
+          <MainFeaturedPost mainFeaturedPost={mainFeaturedPost} />
+        </MainLayout>
       </Container>
-      <Footer />
     </Fragment>
   );
 }

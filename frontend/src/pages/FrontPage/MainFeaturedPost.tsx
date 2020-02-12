@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function MainFeaturedPost({ mainFeaturedPost }: Props) {
+const MainFeaturedPostL: React.FC<Props> = ({ mainFeaturedPost }) => {
   const { title, description, img1, img2, firstBtnText, secondBtnText } = mainFeaturedPost;
   const { root, imgClass, mainTitle, mainContainerContent, buttons } = useStyles();
   return (
@@ -58,3 +58,5 @@ export default function MainFeaturedPost({ mainFeaturedPost }: Props) {
     </Grid>
   );
 }
+
+export default MainFeaturedPostL

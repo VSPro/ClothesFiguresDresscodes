@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import FiltersPage from './pages/FiltersPage';
 import NotFoundPage from './pages/NotFoundPage';
-import FrontPage from './pages/FrontPage/FrontPage';
+import FrontPage from './pages/FrontPage/';
 
 ReactDOM.render(
   <Provider store={store}>
