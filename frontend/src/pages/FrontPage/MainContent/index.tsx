@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { useStyles } from './styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-interface MainContent {
+interface Content {
   title: string;
   description: string;
   img1: string;
@@ -15,25 +15,11 @@ interface MainContent {
 }
 
 interface Props {
-  mainContent: MainContent;
+  content: Content;
 }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  mainContainerContent: {},
-  imgClass: {},
-  mainTitle: {},
-  buttons: {
-    '& > *': {
-      margin: theme.spacing(4),
-    },
-  },
-}));
-
-const MainContent: React.FC<Props> = ({ mainContent }) => {
-  const { title, description, img1, img2, firstBtnText, secondBtnText } = mainContent;
+const MainContent: React.FC<Props> = ({ content }) => {
+  const { title, description, img1, img2, firstBtnText, secondBtnText } = content;
   const { root, imgClass, mainTitle, mainContainerContent, buttons } = useStyles();
   return (
     <Grid container className={root} spacing={2}>

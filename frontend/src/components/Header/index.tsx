@@ -1,8 +1,8 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import { Toolbar } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
-import { useStyles } from './style'
+import { useStyles } from './styles';
 
 interface Section {
   title: string;
@@ -11,7 +11,7 @@ interface Section {
 }
 
 interface Props {
-  history: any,
+  history: any;
 }
 
 const sections = [
@@ -23,9 +23,7 @@ const sections = [
   { title: 'bucket', url: '/', img: '' },
 ];
 
-const Header: React.FC<Props> = ({
-  history,
-}) => {
+const Header: React.FC<Props> = ({ history }) => {
   const { toolBarSecondary, toolBarLink, toolBarLabel } = useStyles();
 
   return (
@@ -40,8 +38,8 @@ const Header: React.FC<Props> = ({
           key={section.title}
           variant="body2"
           className={toolBarLink}
-          onClick={ () => {
-            history.push(section.url)
+          onClick={() => {
+            history.push(section.url);
           }}
         >
           {section.title}
@@ -49,6 +47,6 @@ const Header: React.FC<Props> = ({
       ))}
     </Toolbar>
   );
-}
+};
 
-export default withRouter(Header)
+export default withRouter(Header);
