@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-interface MainFeaturedPost {
+interface MainContent {
   title: string;
   description: string;
   img1: string;
@@ -15,7 +15,7 @@ interface MainFeaturedPost {
 }
 
 interface Props {
-  mainFeaturedPost: MainFeaturedPost;
+  mainContent: MainContent;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -32,8 +32,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MainFeaturedPostL: React.FC<Props> = ({ mainFeaturedPost }) => {
-  const { title, description, img1, img2, firstBtnText, secondBtnText } = mainFeaturedPost;
+const MainContent: React.FC<Props> = ({ mainContent }) => {
+  const { title, description, img1, img2, firstBtnText, secondBtnText } = mainContent;
   const { root, imgClass, mainTitle, mainContainerContent, buttons } = useStyles();
   return (
     <Grid container className={root} spacing={2}>
@@ -57,6 +57,6 @@ const MainFeaturedPostL: React.FC<Props> = ({ mainFeaturedPost }) => {
       </Grid>
     </Grid>
   );
-}
+};
 
-export default MainFeaturedPostL
+export default MainContent;

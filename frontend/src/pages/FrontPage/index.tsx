@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { CssBaseline, Container } from '@material-ui/core';
-import MainFeaturedPost from './MainFeaturedPost';
-import MainLayout from '../../modules/MainLayout'
+import MainContent from './MainContent';
+import MainLayout from '../../modules/MainLayout';
 
-const mainFeaturedPost = {
+const mainContent = {
   title: 'Сервис-помощник по подбору одежды',
   description:
     'Мы не продаем, мы помогаем подобрать одежду с учетом особенностей фигруы, внешности и под стать обстановке',
@@ -19,7 +19,7 @@ export default function FrontPage() {
       <CssBaseline />
       <Container>
         <MainLayout>
-          <MainFeaturedPost mainFeaturedPost={mainFeaturedPost} />
+          <MainContent mainContent={mainContent} />
         </MainLayout>
       </Container>
     </Fragment>
