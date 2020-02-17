@@ -5,4 +5,16 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6, 0),
   },
+  toolBarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolBarLabel: {
+    flexBasis: 200,
+  },
+
+  toolBarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
 }));
