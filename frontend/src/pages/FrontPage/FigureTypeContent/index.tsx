@@ -13,7 +13,7 @@ interface Props {
   content: Content;
 }
 
-const ServicePurposeContent: React.FC<Props> = ({ content }) => {
+const FigureTypeContent: React.FC<Props> = ({ content }) => {
   const { title, description, btnText } = content;
   const {} = useStyles();
   return (
@@ -29,4 +29,4 @@ const ServicePurposeContent: React.FC<Props> = ({ content }) => {
   );
 };
 
-export default ServicePurposeContent;
+export default FigureTypeContent;

@@ -13,8 +13,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/frontPage" component={FrontPage} />
-        <Route exact path="/" component={FirstPage} />
+        <Route exact path="/" component={FrontPage} />
+        <Route exact path="/firstPage" component={FirstPage} />
         <Route path="/calculation" component={FigureCalculationPage} />
         <Route path="/filters" component={FiltersPage} />
         <Route component={NotFoundPage} />

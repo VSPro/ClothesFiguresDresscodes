@@ -20,9 +20,10 @@ interface Props {
 
 const HowItWorksContent: React.FC<Props> = ({ content }) => {
   const { title, steps, btnText } = content;
+  const {} = useStyles();
   return (
     <Fragment>
-      <Typography variant="h3" color="inherit">
+      <Typography variant="h5" color="inherit">
         {title}
       </Typography>
       <ul>

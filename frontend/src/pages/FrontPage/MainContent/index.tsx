@@ -24,10 +24,10 @@ const MainContent: React.FC<Props> = ({ content }) => {
   return (
     <Grid container className={root} spacing={2}>
       <Grid item xs={12} md={6} className={mainContainerContent}>
-        <Typography variant="h3" color="inherit" gutterBottom className={mainTitle}>
+        <Typography variant="h5" color="inherit" gutterBottom className={mainTitle}>
           {title}
         </Typography>
-        <Typography variant="h5" color="inherit" paragraph>
+        <Typography variant="h6" color="inherit" paragraph>
           {description}
         </Typography>
         <div className={buttons}>

@@ -4,6 +4,8 @@ import MainContent from './MainContent/index';
 import MainLayout from '../../modules/MainLayout';
 import HowItWorksContent from './HowItWorksContent/index';
 import ServicePurposeContent from './ServicePurposeContent';
+import FigureTypeContent from './FigureTypeContent';
+import ClothesStylesContetn from './ClothesStylesContent';
 
 const mainContent = {
   title: 'Сервис-помощник по подбору одежды',
@@ -30,8 +32,23 @@ const howItWorksContent = {
 
 const servicePurposeContent = {
   title: 'Основная цель сервиса',
-  description: '',
-  btnText: '',
+  description:
+    'Не у каждого человека модельные параметры. Подходит ли под вашу фигуру выбранная в магазине вещь? Подходит ли она нашему возрасту статусу? Наш сайт поможет подобрать одежду с учетом вашей внешности и друсс-кода.',
+  btnText: 'Подробнее',
+};
+
+const figureTypeContent = {
+  title: 'Типы фигур',
+  description:
+    'Кто-то коренастый, кто-то вытянутый. Не каждый костюмчик будет сидеть на всех одинаково.Фигуры людей можно распределить по группам, на основе снимаемых мерок.Сервис определяет основные характеристики внешности, для дальнейшего подбора одежды.',
+  btnText: 'Подробнее',
+};
+
+const clothesStylesContent = {
+  title: 'Стили одежды',
+  description:
+    'Одежда должна не только хорошо подходить вам, также она должна подходить мероприятию, на которое вы собираетесь. Здесь помогает понятие о дресс-кодах.Вы можете выбрать желаемый дресс-код и получать в раздаче только соответствующую ему одежду.',
+  btnText: 'Подробнее',
 };
 
 export default function FrontPage() {
@@ -43,6 +60,8 @@ export default function FrontPage() {
           <MainContent content={mainContent} />
           <HowItWorksContent content={howItWorksContent} />
           <ServicePurposeContent content={servicePurposeContent} />
+          <FigureTypeContent content={figureTypeContent} />
+          <ClothesStylesContetn content={clothesStylesContent} />
         </MainLayout>
       </Container>
     </Fragment>
