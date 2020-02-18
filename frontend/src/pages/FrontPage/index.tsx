@@ -55,15 +55,13 @@ export default function FrontPage() {
   return (
     <Fragment>
       <CssBaseline />
-      <Container>
-        <MainLayout>
-          <MainContent content={mainContent} />
-          <HowItWorksContent content={howItWorksContent} />
-          <ServicePurposeContent content={servicePurposeContent} />
-          <FigureTypeContent content={figureTypeContent} />
-          <ClothesStylesContetn content={clothesStylesContent} />
-        </MainLayout>
-      </Container>
+      <MainLayout>
+        <MainContent content={mainContent} />
+        <HowItWorksContent content={howItWorksContent} />
+        <ServicePurposeContent content={servicePurposeContent} />
+        <FigureTypeContent content={figureTypeContent} />
+        <ClothesStylesContetn content={clothesStylesContent} />
+      </MainLayout>
     </Fragment>
   );
 }
