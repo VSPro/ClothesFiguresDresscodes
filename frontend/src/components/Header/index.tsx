@@ -1,29 +1,19 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Toolbar } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import { useStyles } from './styles';
 
-interface Section {
-  title: string;
-  url: string;
-  img?: string;
+interface HeaderItem {
+  pageUrl: string;
+  pageTitle: string;
 }
-
 interface Props {
   history: any;
+  headerItems?: HeaderItem[];
 }
 
-const sections = [
-  { title: 'О СЕРВИСЕ', url: '/' },
-  { title: 'ОЦЕНКА ФИГУРЫ', url: '/' },
-  { title: 'КАК СНИМАТЬ МЕРКИ', url: '/' },
-  { title: 'ТИРЫ ФИГУР', url: '/' },
-  { title: 'ПОДБОР ОДЕЖДЫ', url: '/' },
-  { title: 'bucket', url: '/', img: '' },
-];
-
-const Header: React.FC<Props> = ({ history }) => {
+const Header: React.FC<Props & RouteComponentProps<any>> = ({ history, headerItems }) => {
   const { toolBarSecondary, toolBarLink, toolBarLabel } = useStyles();
 
   return (
@@ -31,18 +21,18 @@ const Header: React.FC<Props> = ({ history }) => {
       <Link color="primary" noWrap key={'Main'} variant="body2" href="#" className={toolBarLabel}>
         НаСтиле
       </Link>
-      {sections.map((section: Section) => (
+      {headerItems?.map((headerItem: HeaderItem) => (
         <Link
           color="primary"
           noWrap
-          key={section.title}
+          key={headerItem.pageTitle}
           variant="body2"
           className={toolBarLink}
           onClick={() => {
-            history.push(section.url);
+            history.push(headerItem.pageUrl);
           }}
         >
-          {section.title}
+          {headerItem.pageTitle}
         </Link>
       ))}
     </Toolbar>
