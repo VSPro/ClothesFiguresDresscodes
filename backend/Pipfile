@@ -6,7 +6,7 @@ verify_ssl = true
 [packages]
 flask = "==1.0.2"
 requests = "*"
-pyjwt = "==1.7.1"
+pyjwt = "==2.4.0"
 flask-cors = "==3.0.7"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
